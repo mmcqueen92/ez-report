@@ -1,0 +1,26 @@
+.new-report-box {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin: 2%;
+}
+
+.new-report-label {
+  margin-bottom: 5px;
+}
+
+.new-report-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.new-report-input {
+  width: 98.5%
+}
+
+.new-report-dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
