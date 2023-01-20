@@ -8,10 +8,7 @@ export default function MainContainer(props) {
         setReports={props.setReports}
         reports={props.reports}
       ></NewReport>
-      {/* <TestReport
-        setReports={props.setReports}
-        reports={props.reports}
-      ></TestReport> */}
+
       <RecentReportsList
         reports={props.reports}></RecentReportsList>
     </div>

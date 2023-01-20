@@ -6,9 +6,11 @@ import React, { useState } from 'react';
 import MainContainer from '../components/MainContainer';
 import Navbar from '../components/Navbar'
 import { PrismaClient } from '@prisma/client'
+import {prisma} from '../../server/db/client'
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
 
-const prisma = new PrismaClient();
+
 
 export async function getServerSideProps() {
   const reports = await prisma.report.findMany();

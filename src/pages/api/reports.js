@@ -1,6 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import {prisma} from '../../../server/db/client'
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -11,14 +9,16 @@ export default async function handler(req, res) {
       const {
         perpetrator,
         infraction,
-        action
+        action,
+        user
       } = req.body;
 
       const report = await prisma.report.create({
         data: {
           perpetrator,
           infraction,
-          action
+          action,
+          user
         }
       })
       res.redirect("/")

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useSession, signIn } from "next-auth/react";
+import getServerSideProps from '../pages/index';
+
+
+
 
 export default function NewReport(props) {
   const [perpetrator, setPerpetrator] = useState("");
@@ -8,7 +13,10 @@ export default function NewReport(props) {
   const [action, setAction] = useState("uninstall");
   const router = useRouter()
 
+  const { data: session } = useSession()
+
   const refreshData = () => {
+    console.log("running refreshData")
     router.replace(router.asPath);
   }
 // ----------------------------------------------------
@@ -16,18 +24,24 @@ export default function NewReport(props) {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault()
     
-    const perpetrator= event.target.perpetrator.value
-    const infraction= event.target.infraction.value
-    const action= event.target.action.value
+    if (session) {
+
+    const perpetrator = event.target.perpetrator.value;
+    const infraction = event.target.infraction.value;
+    const action = event.target.action.value;
+    const user = session.user.name;
+
+
 
     const state = props.reports;
-    state.unshift({perpetrator, infraction, action})
+    state.unshift({perpetrator, infraction, action, user})
 
     // Get data from the form.
     const data = {
       perpetrator,
       infraction,
-      action
+      action,
+      user
     }
 
     // Send the data to the server in JSON format.
@@ -44,7 +58,14 @@ export default function NewReport(props) {
     .then(setPerpetrator(""))
     .then(setInfraction(""))
     .then(props.setReports(state))
-    .then(refreshData())
+    .then(refreshData());
+
+
+
+    } else {
+      signIn()
+
+    }
 
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
