@@ -21,8 +21,8 @@ export default async function handler(req, res) {
           action
         }
       })
-
-      res.status(201).json(report)
+      res.redirect("/")
+      // res.status(201).json(report)
       prisma.$disconnect()
       break
 
