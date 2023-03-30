@@ -16,7 +16,9 @@ export default function Login () {
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <button 
+      className="border-2 border-black p-1 rounded-md hover:bg-black hover:text-red-500 bg-slate-200"
+      onClick={() => signIn()}>Sign in</button>
     </>
   )
 }

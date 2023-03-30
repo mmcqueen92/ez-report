@@ -3,7 +3,7 @@ import RecentReportsList from './RecentReportsList';
 
 export default function MainContainer(props) {
   return (
-    <div className="flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <NewReport
         setReports={props.setReports}
         reports={props.reports}
