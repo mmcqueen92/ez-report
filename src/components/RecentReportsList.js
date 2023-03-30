@@ -19,8 +19,8 @@ export default function RecentReports (props) {
   })
 
   return (
-    <div className="flex flex-col items-center border-2 border-rose-500 rounded-md p-5 bg-rose-300 w-2/5">
-      <div className="font-bold text-xl underline">Recent Reports</div>
+    <div className="flex flex-col items-center border-2 border-slate-900 rounded-md p-5 bg-rose-300 w-1/3">
+      <div className="font-bold text-xl underline">Recent Reports:</div>
       {reportArray}
     </div>
   )

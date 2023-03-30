@@ -77,37 +77,39 @@ export default function NewReport(props) {
 
 
   return (
-    <div className="flex flex-col m-2 border-2 border-rose-500 rounded-md p-2 w-2/5 bg-rose-300">
-      <div className="font-semibold underline">File a Report:</div>
-      <form onSubmit={handleSubmit} className="flex flex-col" action="/api/reports" method="POST">
-        <div className='flex flex-row justify-between'>
-          <label className="my-2" htmlFor="perpetrator">Perpetrator: </label>
-          <input onChange={(event) => {
-            setPerpetrator(event.target.value)
-          }} value={perpetrator} className="w-1/2 rounded-md border-2 border-rose-500 my-1" type="text" id="perpetrator" name="perpetrator"></input>
+    <div className="flex flex-col m-2 border-2 border-slate-900 rounded-md p-2 pb-5 w-1/3 bg-rose-300 items-center">
+      <div className="font-bold text-xl underline m-2">File a Report:</div>
+      <div className='bg-slate-300 rounded-md p-2 border-2 border-slate-800 w-4/5'>
+        <form onSubmit={handleSubmit} className="flex flex-col" action="/api/reports" method="POST">
+          <div className='flex flex-row justify-between'>
+            <label className="my-2" htmlFor="perpetrator">Perpetrator: </label>
+            <input onChange={(event) => {
+              setPerpetrator(event.target.value)
+            }} value={perpetrator} className="w-1/2 rounded-md border-2 border-rose-500 my-1" type="text" id="perpetrator" name="perpetrator"></input>
 
-        </div>
-        <div className='flex flex-row justify-between'>
-          <label className="my-2" htmlFor="infraction">Infraction: </label>
-          <input onChange={(event) => {
-            setInfraction(event.target.value)
-          }} value={infraction} className="w-1/2 rounded-md border-2 border-rose-500 my-1" type="text" id="infraction" name="infraction"></input>
+          </div>
+          <div className='flex flex-row justify-between'>
+            <label className="my-2" htmlFor="infraction">Infraction: </label>
+            <input onChange={(event) => {
+              setInfraction(event.target.value)
+            }} value={infraction} className="w-1/2 rounded-md border-2 border-rose-500 my-1" type="text" id="infraction" name="infraction"></input>
 
-        </div>
-        <div className="flex flex-row justify-between">
-          <label className="my-2" htmlFor="action">Suggested Action: </label>
-          <select onChange={(event) => {
-            setAction(event.target.value)
-          }} className="border-2 border-slate-500 rounded-md" name="action" id="action">
-            <option value="Permaban">Permaban</option>
-            <option value="Exile">Exile</option>
-            <option value="The Brimpy Shpingle">The Brimpy Shpingle</option>
-          </select>
-        </div>
-        <div className="flex justify-center">
-          <button className="border-2 border-black bg-rose-500 p-1 rounded-md hover:bg-black hover:text-red-500" type="submit">Submit</button>
-        </div>
-      </form>
+          </div>
+          <div className="flex flex-row justify-between">
+            <label className="my-2" htmlFor="action">Suggested Action: </label>
+            <select onChange={(event) => {
+              setAction(event.target.value)
+            }} className="border-2 border-rose-500 rounded-md" name="action" id="action">
+              <option value="Permaban">Permaban</option>
+              <option value="Exile">Exile</option>
+              <option value="The Brimpy Shpingle">The Brimpy Shpingle</option>
+            </select>
+          </div>
+          <div className="flex justify-center">
+            <button className="border-2 border-black bg-rose-500 p-1 rounded-md hover:bg-black hover:text-red-500" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

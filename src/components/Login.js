@@ -1,7 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react"
 
 
-export default function Login () {
+export default function Login() {
   const { data: session } = useSession()
 
   if (session) {
@@ -14,11 +14,13 @@ export default function Login () {
     )
   }
   return (
-    <>
-      Not signed in <br />
-      <button 
-      className="border-2 border-black p-1 rounded-md hover:bg-black hover:text-red-500 bg-slate-200"
-      onClick={() => signIn()}>Sign in</button>
-    </>
+    <div className="flex flex-row">
+      <div className="p-2 px-10">
+        Not signed in
+      </div>
+      <button
+        className="border-2 border-black p-1 rounded-md hover:bg-black hover:text-red-500 bg-slate-200"
+        onClick={() => signIn()}>Sign in</button>
+    </div>
   )
 }
